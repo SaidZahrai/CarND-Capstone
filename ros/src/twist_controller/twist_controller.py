@@ -6,6 +6,7 @@ from lowpass import LowPassFilter
 
 GAS_DENSITY = 2.858
 ONE_MPH = 0.44704
+MAX_BRAKE = 400.0
 
 
 class Controller(object):
@@ -56,13 +57,14 @@ class Controller(object):
         throttle = self.throttle_controller.step(vel_error, sample_time)
         brake = 0
 
-        if linear_vel == 0 and current_vel < 0.1:
+        if linear_vel < 0.01 and current_vel < 0.1:
             throttle = 0.0
-            brake = 400 # Nm - to hold the car in place if we are stopped at a light. Acceleration - 1m/s^2
+            brake = MAX_BRAKE # Nm - to hold the car in place if we are stopped at a light. Acceleration - 1m/s^2
 
-        elif throttle < -1 and vel_error < 0:
+        elif throttle < 0.1 and vel_error < 0:
             throttle = 0
             decel = max(vel_error, self.decel_limit)
             brake = abs(decel)*self.vehicle_mass*self.wheel_radius # Torque Nm
+            brake = min(MAX_BRAKE, brake)  # Torque N*m
             
         return throttle, brake, steering

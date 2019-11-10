@@ -24,10 +24,10 @@ as well as to verify your TL classifier.
 TODO (for Yousuf and Aaron): Stopline location for each traffic light.
 '''
 
-LOOKAHEAD_WPS = 100  # Number of waypoints we will publish. You can change this number
+LOOKAHEAD_WPS = 50  # Number of waypoints we will publish. You can change this number
 STOP_MARGIN = 3      # To make sure that the front of the car will be behind the stop line
-PUBLISH_RATE = 30    # The rate of publishing final_waypoints
-MAX_DECEL = 0.2      # Maximum deceleration
+PUBLISH_RATE = 50    # The rate of publishing final_waypoints
+MAX_DECEL = 2      # Maximum deceleration
 
 
 class WaypointUpdater(object):
