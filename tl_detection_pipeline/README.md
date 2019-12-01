@@ -8,6 +8,8 @@ This pipeline is based on the inference tutorial in the [Object Detection tutori
 ### Current status
 The problem I am facing is that I cannot succeed to run the models from Object Detection API in Tensorflow 1.3. I succeed to run Tensorflow 2.0 to preparre data. Then I switch to Tensorflow 1.9 and train, but after that I do not suceed to extract the data from checkpoints as a graph. 
 
+These different versions are running in different environments. I use miniconda for that.
+
 I am using on an 8-core PC with Ubuntu 18.04. The machine has a graphic card, but it is too old to be useful. I have tried with python 3.5, as required for the Capstone project and 3.7, which is required for Tensorflow 2.0.
 
 
