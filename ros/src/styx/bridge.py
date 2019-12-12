@@ -35,7 +35,7 @@ TYPE = {
     'image':Image
 }
 
-IMAGE_PUBLISHING_REDUCTION_RATE = 5
+IMAGE_PUBLISHING_REDUCTION_RATE = 1
 
 class Bridge(object):
     def __init__(self, conf, server):
